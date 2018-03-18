@@ -1,7 +1,6 @@
 
-function [eequi,echeb]=chebfun_test
+function [eequi,echeb]=chebfun_test(example)
 
-example=1;
 d = [-1, 1]; % INTERVAL.
 
 switch example
@@ -25,8 +24,8 @@ nn=1:1:100;
 for n=nn
     x = linspace(d(1), d(2), n+1);
     p = chebfun.interp1(x, ff(x));
-    fc = chebfun(ff, n+1);
-    eequi=[eequi norm(f-p,inf)];
+    fc = chebfun(ff, n+1);  %determine Chebyshev polynomial of degree n
+    eequi=[eequi norm(f-p,inf)];   %infinite norm
     echeb=[echeb norm(f-fc,inf)];
 end
 
