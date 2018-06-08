@@ -7,21 +7,21 @@ d = [-1, 1]; % INTERVALLO.
 
 switch test
     case 1
-        ff = @(x) abs(x-0.3); % FZ. CONTINUA
+        ff = @(x) abs(x-0.3);
     case 2
-        ff = @(x) exp(x.^2); % FZ. ANALITICA
+        ff = @(x) exp(x.^2);
     case 3
-        ff = @(x) exp(x); % FZ. ANALITICA
+        ff = @(x) exp(x);
     case 4
-        ff = @(x) sin(x); % FZ. ANALITICA
+        ff = @(x) sin(x);
     case 5
-        ff = @(x) sinc(x); % FZ. sinc
+        ff = @(x) sinc(x);
 end
 
 f = chebfun(ff,d,'splitting','on');
 for n = 10:10:50
-  p = remez(f, n); % MIGLIOR APPROX GRADO n
-  fc = chebfun(ff, n+1); % INTP. CHEB.
+  p = remez(f, n);
+  fc = chebfun(ff, n+1);
 
   erem=norm(f-p, inf);
   echeb=norm(f-fc, inf);
