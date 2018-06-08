@@ -3,19 +3,19 @@
 function ex2_lab1
 
 test=5;
-d = [-1, 1]; % INTERVALLO.
+d = [-1, 1];
 
 switch test
     case 1
-        ff = @(x) abs(x-0.3); % FZ. CONTINUA
+        ff = @(x) abs(x-0.3);
     case 2
-        ff = @(x) exp(x.^2); % FZ. ANALITICA
+        ff = @(x) exp(x.^2);
     case 3
-        ff = @(x) exp(x); % FZ. ANALITICA
+        ff = @(x) exp(x);
     case 4
-        ff = @(x) sin(x); % FZ. ANALITICA
+        ff = @(x) sin(x);
     case 5
-        ff = @(x) sinc(x); % FZ. sinc
+        ff = @(x) sinc(x);
 end
 
 f = chebfun(ff, d, 'splitting', 'on');   %splitting on needed for abs(x-0.3)
